@@ -1,0 +1,2 @@
+# Carpeta Ruta de instalaciones : C:\Users\Maria E Mata\AppData\Roaming\Python\Python39\Scripts
+# Url : proyectos : https://pypi.org/project/

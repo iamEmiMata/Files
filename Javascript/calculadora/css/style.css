@@ -1,0 +1,133 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: "Inter";
+}
+
+body {
+    background-image: url("../img/bg.png");
+    background-size: 70%;
+}
+
+main {
+    position: absolute;
+    width: 25%;
+    height: 75%;
+    left: 430px;
+    top: 50px;
+
+    background: linear-gradient(180deg, #181E1A 30%, rgba(24, 30, 26, 0.97) 60%);
+    border: 4px solid #FEB800;
+    box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.screen {
+    padding: 30px;
+}
+
+.screen::after {
+    content: '';
+    border-bottom: 1px solid #FEB800;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 80px;
+}
+
+.screen input {
+    width: 100%;
+    background-color: #181E1A;
+    border: none;
+    text-align: right;
+    font-weight: 200;
+    font-size: 25px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+    outline: none;
+}
+
+.buttons {
+   padding: 20px;
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   justify-content: center;
+   align-items: center;
+}
+
+.row {
+    display: grid;
+    grid-template-rows: repeat(4,1fr);
+    grid-gap: 1rem;
+    justify-content: center;
+   align-items: center;
+}
+
+.col {
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-gap:1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: #181E1A;
+    width: 50px;
+    height: 50px;
+    box-shadow : 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background-color: #3d3c3a;
+    transition: 1s ease;
+}
+
+.btnNo {
+    background-color:  rgb(24 30 26);
+    width: 50px;
+    height: 50px;
+}
+
+.clear {
+    font-size: 20px;
+    background-color: #FEB800;
+    color: #181E1A;
+}
+
+.clear:hover {
+    color: #fff;
+}
+
+
+footer {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 5px 2px 6px rbga(0,0,0 .3);
+    margin: 30px 50px;
+}
+
+footer span {
+    font-size: 12px;
+    padding: 8px 0;
+}
+
+footer span a {
+    text-decoration: none;
+    color: #181E1A;
+}
+
+.no-seleccionable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}

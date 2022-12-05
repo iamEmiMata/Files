@@ -1,0 +1,103 @@
+/* Cometario */
+/*selector {property : value; }*/
+
+/* universal selector *   */
+
+* {
+
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+
+/* class > .property */
+/* id > #property */
+/* child selectors :  body > p */
+/* attribute selectors : input[type = 'text'] */
+/* grouping selectors : h1, h2, h3 {properties : ;} */
+/* import rule : @import url('url') > @import 'anotherStyleFile.css */
+/* measurement units :
+	%, cm, em, ex, in, mm, pc, pt, px
+*/
+/*  colors :
+	Hex code > #RRGGBB;
+	Hex code short > #RGB
+	RGB % > rgb(R,G,B)
+	RGBA > rgba(R,G,B, A)
+	Keyword > black, white, lightblue, etc.
+*/
+/*
+	Backgrounds :
+	> Background-color
+	> Background-image
+	> Background-repeat
+	> Background-position
+	> Background-attachment
+	> Background
+
+	Fonts:
+	> font-family
+	> font-style
+	> font-variant
+	> font-weight
+	> font-size
+	> font
+
+	Text :
+	> color
+	> direction
+	> letter-spacing
+	> word-spacing
+	> text-align
+	> text-indent
+	> text-align
+	> text-decoration
+	> text-transform
+	> white-soace
+	> text-shadow
+
+	images:
+	> border
+	> height
+	> width
+	> -moz-opacity
+
+	Links:
+	> a:link
+	> a:visited
+	> a:hover
+	> a:active
+
+	Borders:
+	> border-color
+	> border-style
+	> border-width
+	> border-bottom-color
+	> border-top-color
+	> border-left-color
+	> border-right-color
+
+	> none, solid, dotted, dashed, double, groove, ridge, inset, outset, hidden
+
+	Margins:
+	> left, right, top, bottom
+
+	Padding:
+	> left, right, top, bottom
+
+	Cursor:
+
+	Outlines:
+	> outline-width, outline-style, outline-color, outline
+
+	Dimensions:
+	> height, max-height, line-height, min-height
+	> width, max-width, min-width
+
+	Scrollbars:
+	> overflow : scroll, visible, hidden, auto
+
+
+*/

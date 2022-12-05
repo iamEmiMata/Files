@@ -1,0 +1,24 @@
+| SQL EJECUTOR PARA SUBLIME TEXT |
+::::  Pasos :::: 
+
+1 . Open Tools Tab in Sublime Text
+2 . Go to Build System 
+3 . In the Last of this is New Build Systems, Open it.
+4 . Copy and past this code in that File
+
+{
+    "cmd": ["C:/xampp/mysql/bin/mysql.exe", "-u", "root", "-P", "", "-h", "localhost", "-e", "source $file", "-t"],
+    "selector": "source.sql",
+    "quiet": true
+}
+
+5 . Save as SQL.sublime-build
+6 . Create a new Folder called SQL
+7 . Inside the folde SQL create a new file called Command.sql and save
+8 . Write inside command.sql this code to testing it works.
+
+SHOW databases;
+
+9 . To Run de code press next : Ctrl + B
+
+

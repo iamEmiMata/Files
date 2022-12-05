@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="no-seleccionable">
+    
+    <main>
+        <form name="screen" class="screen">
+            <input type="text" name="ans" value="" autocomplete="off" readonly >
+        </form>
+        <section class="buttons">
+            <section class="row">
+                <span class="col btnNo"></span>
+                <input class="col btn" type="button" value="/" onclick="div();">
+                <input class="col btn" type="button" value="x" onclick="mult();">
+                <input class="col btn" type="button" value="-" onclick="resta();">
+                <input class="col btn" type="button" value="+" onclick="suma();">
+            </section>
+            <section class="row">
+                <span class="col btnNo"></span>
+                <input class="col btn" type="button" value="7" onclick="siete();">
+                <input class="col btn" type="button" value="4" onclick="cuatro();">
+                <input class="col btn" type="button" value="1" onclick="uno();">
+                <input class="col btn" type="button" value="=" onclick="resultado();">
+            </section>
+            <section class="row">
+                <span class="col btnNo"></span>
+                <input class="col btn" type="button" value="8" onclick="ocho();">
+                <input class="col btn" type="button" value="5" onclick="cinco();">
+                <input class="col btn" type="button" value="2" onclick="dos();">
+                <input class="col btn" type="button" value="0" onclick="cero();">
+            </section>
+            <section class="row">
+                <input class="col btn clear" type="button" value="c" onclick="limpiar();">
+                <input class="col btn" type="button" value="9" onclick="nueve();">
+                <input class="col btn" type="button" value="6" onclick="seis();">
+                <input class="col btn" type="button" value="3" onclick="tres();">
+                <input class="col btn" type="button" value="%" onclick="document.screen.ans.value+='%'">
+            </section>
+        </section>
+    </main>
+    <footer>
+        <span><a href="https://www.instagram.com/_emimata/" target="_blank">Insta : _emimata</a></span>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- Block second clic JS --> 
+    <script type="text/javascript">
+        document.oncontextmenu = function(){
+        return false;
+        }
+    </script>
+</body>
+</html>

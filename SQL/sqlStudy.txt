@@ -1,0 +1,610 @@
+-------------------------------------------
+What is SQL?
+-------------------------------------------
+
+SQL : Structure Query Language ~ Lenguaje de Consulta Estructurado 
+
+SQL, or Structured Query Language, is a language designed to allow both technical and non-technical users query, manipulate, and transform data from a relational database. And due to its simplicity, SQL databases provide safe and scalable storage for millions of websites and mobile applications.
+
+There are many popular SQL databases including SQLite, MySQL, Postgres, Oracle and Microsoft SQL Server. All of them support the common SQL language standard.
+
+-------------------------------------------
+SENTENCES TIPES :
+-------------------------------------------
+
+1. Lenguaje de Definicion de Datos ~ DDL
+. Data Definition Language (DDL): to create and modify the structure of the database;
+
+
+2. Lenguaje de Manipulacion de Datos ~ DML
+. Data Manipulation Language (DML): to perform Read, Insert, Update and Delete operations on the data of
+the database;
+
+
+3. Lenguaje de Control de Datos ~ DCL
+. Data Control Language (DCL): to control the access of the data stored in the database.
+
+-------------------------------------------
+SELECT Queries :
+-------------------------------------------
+
+
+Select query for all columns
+SELECT * 
+FROM mytable;
+
+-------------------------------------------
+
+Select query for a specific columns
+
+SELECT column, another_column, …
+FROM mytable;
+
+
+-------------------------------------------
+Queries with constraints :
+-------------------------------------------
+
+Select query with constraints
+SELECT column, another_column, …
+FROM mytable
+WHERE condition
+    AND/OR another_condition
+    AND/OR …;
+
+----------------------------------------------------------------------------------------------
+|        Operators	   |	conditions 	                   |  SQL Examples                   |
+----------------------------------------------------------------------------------------------
+| =, !=, < <=, >, >=   | Standard numerical operators      | col_name != 4                   |
+| BETWEEN … AND …      |Number is within range of 2 values | col_name BETWEEN 1.5 AND 10.5   |
+| NOT BETWEEN … AND    |Number isnt within range of 2 valu | col_name NOT BETWEEN 1 AND 10   |
+| IN (…)               |Number exists in a list            | col_name IN (2, 4, 6)			 |
+| NOT IN (…)           |Number does not exist in a list    | col_name NOT IN (1, 3, 5)       |
+----------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------------
+|      Operators	   |	           conditions 	                   |  SQL Examples                   |
+----------------------------------------------------------------------------------------------------------
+| =					   |  Case sensitive exact string comparison       | col_name = "abc"                |
+| != or <>             |  Case sensit. exact string ineq. comparison   | col_name != "abcd"              |
+| LIKE                 |  Case insensitive exact string comparison     | col_name LIKE "ABC"             |
+| NOT LIKE             |  Case insensit. exact string ineq. comparison | col_name NOT LIKE "ABCD"        |
+| %					   |  Used anywhere in a string to match a sequence|                                 |
+|                      | of zero or more characters (Like and not like | col_name LIKE "%AT%"            |
+| -                    | Used anywh in a strg to match a single charact| col_name LIKE "AN_"             |
+----------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------
+Filtering and sorting Query :
+-------------------------------------------
+
+Dado que la palabra clave DISTINCT eliminará ciegamente filas duplicadas, aprenderemos en una lección futura 
+cómo descartar duplicados basados ​​en columnas específicas usando agrupación y la cláusula GROUP BY.
+
+-------------------------------------------
+
+Select query with unique results
+
+SELECT DISTINCT column, another_column, …
+FROM mytable
+WHERE condition(s);
+
+-------------------------------------------
+
+Select query with ordered results
+
+SELECT column, another_column, …
+FROM mytable
+WHERE condition(s)
+ORDER BY column ASC/DESC;
+
+-------------------------------------------
+
+Otra cláusula que se usa comúnmente con la cláusula ORDER BY son las cláusulas LIMIT y OFFSET, que son una optimización
+útil para indicar a la base de datos el subconjunto de los resultados que le interesan. El LÍMITE reducirá el número de 
+filas a devolver, y el DESPLAZAMIENTO opcional especificará desde dónde empezar a contar el número de filas.
+
+-------------------------------------------
+
+Select query with limited rows
+
+SELECT column, another_column, …
+FROM mytable
+WHERE condition(s)
+ORDER BY column ASC/DESC
+LIMIT num_limit OFFSET num_offset;
+
+
+-------------------------------------------
+Multi-table queries with JOINs :
+-------------------------------------------
+
+Las tablas que comparten información sobre una sola entidad deben tener una clave principal que identifique esa entidad
+de forma única en la base de datos. Un tipo de clave primaria común es un entero que se incrementa automáticamente, pero
+también puede ser una cadena, valor hash, siempre que sea único.
+
+-------------------------------------------
+
+Select query with INNER JOIN on multiple tables
+
+SELECT column, another_table_column, …
+FROM mytable
+INNER JOIN another_table 
+    ON mytable.id = another_table.id
+WHERE condition(s)
+ORDER BY column, … ASC/DESC
+LIMIT num_limit OFFSET num_offset;
+
+-------------------------------------------
+
+INNER JOIN es un proceso que hace coincidir filas de la primera tabla y la segunda tabla que tienen la misma clave (según lo definido por la restricción ON) para crear una fila de resultados con las columnas combinadas de ambas tablas. Después de unir las tablas, se aplican las otras cláusulas que aprendimos anteriormente.
+
+
+-------------------------------------------
+OUTER JOINs :
+-------------------------------------------
+
+Dependiendo de cómo desee analizar los datos, el INNER JOIN que usamos en la última lección podría no ser suficiente porque la tabla resultante solo contiene datos que pertenecen a ambas tablas.
+
+Si las dos tablas tienen datos asimétricos, lo que puede suceder fácilmente cuando los datos se ingresan en diferentes etapas, entonces tendríamos que usar LEFT JOIN, RIGHT JOIN o FULL JOIN en su lugar para asegurarnos de que los datos que necesita no se queden fuera de los resultados.
+
+-------------------------------------------
+
+Select query with LEFT/RIGHT/FULL JOINs on multiple tables
+
+SELECT column, another_column, 
+FROM mytable
+INNER/LEFT/RIGHT/FULL JOIN another_table 
+    ON mytable.id = another_table.matching_id
+WHERE condition(s)
+ORDER BY column, … ASC/DESC
+LIMIT num_limit OFFSET num_offset;
+
+-------------------------------------------
+A short note on NULLs :
+-------------------------------------------
+
+vamos a hablar rápidamente sobre valores NULL en una base de datos SQL. Siempre es bueno reducir la posibilidad de valores NULL en 
+las bases de datos porque requieren una atención especial al construir consultas, restricciones y al procesar los resultados.
+
+-------------------------------------------
+
+Select query with constraints on NULL values
+
+SELECT column, another_column,…
+FROM mytable
+WHERE column IS/IS NOT NULL
+AND/OR another_condition
+AND/OR …;
+
+-------------------------------------------
+A short note on NULLs :
+-------------------------------------------
+
+Además de consultar y hacer referencia a datos de columna sin procesar con SQL, también puede usar expresiones para escribir una lógica 
+más compleja en valores de columna en una consulta. Estas expresiones pueden usar funciones matemáticas y de cadena junto con aritmética 
+básica para transformar valores cuando se ejecuta la consulta, como se muestra en este ejemplo de física.
+
+-------------------------------------------
+
+Example query with expressions
+
+SELECT particle_speed / 2.0 AS half_particle_speed
+FROM physics_data
+WHERE ABS(particle_position) * 10.0 > 500;
+
+-------------------------------------------
+
+Example query with expressions
+
+SELECT particle_speed / 2.0 AS half_particle_speed
+FROM physics_data
+WHERE ABS(particle_position) * 10.0 > 500;
+
+-------------------------------------------
+
+Example query with expressions
+
+SELECT particle_speed / 2.0 AS half_particle_speed
+FROM physics_data
+WHERE ABS(particle_position) * 10.0 > 500;
+
+-------------------------------------------
+
+Cada base de datos tiene su propio conjunto compatible de funciones matemáticas, de cadena y de fecha que se pueden usar en una consulta, que puede encontrar en sus propios documentos respectivos.
+
+El uso de expresiones puede ahorrar tiempo y posprocesamiento adicional de los datos de resultado, pero también puede hacer que la consulta sea más difícil de leer, por lo que recomendamos que cuando se usen expresiones en la parte SELECT de la consulta, también se les dé un descriptivo alias utilizando la palabra clave AS.
+
+-------------------------------------------
+
+Select query with expression aliases
+
+SELECT col_expression AS expr_description, …
+FROM mytable;
+
+-------------------------------------------
+
+Además de las expresiones, las columnas regulares e incluso las tablas también pueden tener alias para facilitar su referencia en la salida y como parte de la simplificación de consultas más complejas.
+
+-------------------------------------------
+
+Example query with both column and table name aliases
+
+SELECT column AS better_column_name, …
+FROM a_long_widgets_table_name AS mywidgets
+INNER JOIN widget_sales
+  ON mywidgets.id = widget_sales.widget_id;
+
+-------------------------------------------
+Queries with expressions :
+-------------------------------------------
+
+Además de consultar y hacer referencia a datos de columna sin procesar con SQL, también puede usar expresiones para escribir una lógica más compleja en valores de columna en una consulta. Estas expresiones pueden usar funciones matemáticas y de cadena junto con aritmética básica para transformar valores cuando se ejecuta la consulta, como se muestra en este ejemplo de física.
+
+-------------------------------------------
+
+Example query with expressions
+
+SELECT particle_speed / 2.0 AS half_particle_speed
+FROM physics_data
+WHERE ABS(particle_position) * 10.0 > 500;
+
+-------------------------------------------
+
+Select query with expression aliases
+
+SELECT col_expression AS expr_description, …
+FROM mytable;
+
+-------------------------------------------
+
+Example query with both column and table name aliases
+
+SELECT column AS better_column_name, …
+FROM a_long_widgets_table_name AS mywidgets
+INNER JOIN widget_sales
+  ON mywidgets.id = widget_sales.widget_id;
+
+-------------------------------------------
+Queries with aggregates :
+-------------------------------------------
+
+SQL también admite el uso de expresiones (o funciones) agregadas que le permiten resumir información sobre un grupo de filas de datos.
+
+-------------------------------------------
+
+Select query with aggregate functions over all rows
+
+SELECT AGG_FUNC(column_or_expression) AS aggregate_description, …
+FROM mytable
+WHERE constraint_expression;
+
+-------------------------------------------
+
+Sin una agrupación especificada, cada función agregada se ejecutará en todo el conjunto de filas de resultados y devolverá un solo valor. Y al igual que las expresiones normales, asignar un alias a sus funciones agregadas garantiza que los resultados sean más fáciles de leer y procesar. 
+
+-------------------------------------------
+Common aggregate functions:
+-------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------
+| Functions 			 |	Description
+---------------------------------------------------------------------------------------------------------------
+| COUNT(*),COUNT(column) | A common function used to counts the number of rows in the group if no column name
+|						 | is specified. Otherwise, count the number of rows in the group with non-NULL values
+|						 | in the specified column.
+---------------------------------------------------------------------------------------------------------------
+| MIN(column) 			 | Finds the smallest numerical value in the specified column for all rows in the group. 
+---------------------------------------------------------------------------------------------------------------
+| MAX(column)			 | Finds the largest numerical value in the specified column for all rows in the group.
+---------------------------------------------------------------------------------------------------------------
+| AVG(column)			 | Finds the average numerical value in the specified column for all rows in the group.
+---------------------------------------------------------------------------------------------------------------
+| SUM(column)			 | Finds the sum of all numerical values in the specified column for the rows in the group.
+---------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------
+Common aggregate functions:
+-------------------------------------------
+
+Select query with aggregate functions over groups
+
+SELECT AGG_FUNC(column_or_expression) AS aggregate_description, …
+FROM mytable
+WHERE constraint_expression
+GROUP BY column;
+
+-------------------------------------------
+Queries with aggregates:
+-------------------------------------------
+
+SQL allows us to do this by adding an additional HAVING clause which is used specifically with the GROUP BY 
+clause to allow us to filter grouped rows from the result set.
+
+-------------------------------------------
+
+Select query with HAVING constraint
+
+SELECT group_by_column, AGG_FUNC(column_expression) AS aggregate_result_alias, …
+FROM mytable
+WHERE condition
+GROUP BY column
+HAVING group_condition;
+
+-------------------------------------------
+Queries with aggregates:
+-------------------------------------------
+
+1. FROM y JOINs
+La cláusula FROM y las JOIN subsiguientes se ejecutan primero para determinar el conjunto de datos de trabajo total que se está consultando. Esto incluye subconsultas en esta cláusula y puede hacer que se creen tablas temporales bajo el capó que contengan todas las columnas y filas de las tablas que se unen.
+
+2. DONDE
+Una vez que tenemos el conjunto de datos de trabajo total, las restricciones de primer paso DONDE se aplican a las filas individuales, y las filas que no satisfacen la restricción se descartan. Cada una de las restricciones solo puede acceder a las columnas directamente desde las tablas solicitadas en la cláusula FROM. Los alias en la parte SELECT de la consulta no son accesibles en la mayoría de las bases de datos, ya que pueden incluir expresiones que dependen de partes de la consulta que aún no se han ejecutado.
+
+3. AGRUPAR POR
+Las filas restantes después de que se aplican las restricciones WHERE se agrupan en función de los valores comunes en la columna especificada en la cláusula GROUP BY. Como resultado de la agrupación, solo habrá tantas filas como valores únicos haya en esa columna. Implícitamente, esto significa que solo debería necesitar usar esto cuando tenga funciones agregadas en su consulta.
+
+4. TENIENDO
+Si la consulta tiene una cláusula GROUP BY, las restricciones de la cláusula HAVING se aplican a las filas agrupadas, descarta las filas agrupadas que no satisfacen la restricción. Al igual que la cláusula WHERE, los alias tampoco son accesibles desde este paso en la mayoría de las bases de datos.
+
+5. SELECCIONAR
+Finalmente, se calcula cualquier expresión en la parte SELECT de la consulta.
+
+6. DISTINTO
+De las filas restantes, se descartarán las filas con valores duplicados en la columna marcada como DISTINCT.
+
+7. PEDIR POR
+Si la cláusula ORDER BY especifica un orden, las filas se ordenan según los datos especificados en orden ascendente o descendente. Dado que se han calculado todas las expresiones en la parte SELECT de la consulta, puede hacer referencia a los alias en esta cláusula.
+
+8. LÍMITE / DESPLAZAMIENTO
+Finalmente, las filas que caen fuera del rango especificado por LIMIT y OFFSET se descartan, dejando el conjunto final de filas para ser devuelto por la consulta.
+
+-------------------------------------------
+
+Complete SELECT query
+
+SELECT DISTINCT column, AGG_FUNC(column_or_expression), …
+FROM mytable
+    JOIN another_table
+      ON mytable.column = another_table.column
+    WHERE constraint_expression
+    GROUP BY column
+    HAVING constraint_expression
+    ORDER BY column ASC/DESC
+    LIMIT count OFFSET COUNT;
+
+-------------------------------------------
+Inserting rows:
+-------------------------------------------
+
+Insert statement with values for all columns
+
+INSERT INTO mytable
+VALUES (value_or_expr, another_value_or_expr, …),
+       (value_or_expr_2, another_value_or_expr_2, …),
+       …;
+
+-------------------------------------------
+Updating rows:
+-------------------------------------------
+
+Update statement with values
+
+UPDATE mytable
+SET column = value_or_expr, 
+    other_column = another_value_or_expr, 
+    …
+WHERE condition;
+
+-------------------------------------------
+Deleting rows:
+-------------------------------------------
+
+Delete statement with condition
+
+DELETE FROM mytable
+WHERE condition;
+
+-------------------------------------------
+Creating tables rows:
+-------------------------------------------
+
+Create table statement w/ optional table constraint and default value
+
+CREATE TABLE IF NOT EXISTS mytable (
+    column DataType TableConstraint DEFAULT default_value,
+    another_column DataType TableConstraint DEFAULT default_value,
+    …
+);
+
+-------------------------------------------
+
+Movies table schema
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    director TEXT,
+    year INTEGER, 
+    length_minutes INTEGER
+);
+
+-------------------------------------------
+Altering tables:
+-------------------------------------------
+
+Altering table to add new column(s)
+
+ALTER TABLE mytable
+ADD column DataType OptionalTableConstraint 
+    DEFAULT default_value;
+
+-------------------------------------------
+Removing columns:
+-------------------------------------------
+
+Altering table to remove column(s)
+
+ALTER TABLE mytable
+DROP column_to_be_deleted;
+
+-------------------------------------------
+Renaming the table:
+-------------------------------------------
+
+Altering table name
+
+ALTER TABLE mytable
+RENAME TO new_table_name;
+
+-------------------------------------------
+Dropping tables:
+-------------------------------------------
+
+Drop table statement
+
+DROP TABLE IF EXISTS mytable;
+
+-------------------------------------------
+SubQueries:
+-------------------------------------------
+
+Select query with subquery constraint
+
+SELECT *, …
+FROM mytable
+WHERE column
+    IN/NOT IN (SELECT another_column
+               FROM another_table);
+
+
+example 2 :
+SELECT *
+FROM sales_associates
+WHERE salary > 
+   (SELECT AVG(revenue_generated)
+    FROM sales_associates);
+
+-------------------------------------------
+Unions, Intersections & Exceptions :
+-------------------------------------------
+
+Select query with set operators
+SELECT column, another_column
+   FROM mytable
+UNION / UNION ALL / INTERSECT / EXCEPT
+SELECT other_column, yet_another_column
+   FROM another_table
+ORDER BY column DESC
+LIMIT n;
+
+-------------------------------------------
+
+
+
+-------------------------------------------
+::::::::::::::::::::::: D B ::::::::::::::::::::::::::::
+
+---CREAR BASE DE DATOS :
+CREATE DATABASE db_name;
+
+---CREAR TABLA :
+CREATE TABLE table_name;
+
+---CREAR NUEVA COLUMNA : 
+ALTER TABLE nw_table_name ADD ROW VARCHAR / INT / FLOAT / DATE / N...(10)
+
+---MODIFICAR BASE DE DATOS (NOMBRE): 
+
+---ELIMINAR BASE DE DATOS :
+DROP DATABASE db_name;
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+---CREAR TABLA :
+CREATE TABLE table_name (
+	id int(10) NOT NULL AUTO_INCREMENT,
+	producto varchar(20) NOT NULL,
+	precio float(5) NOT NULL,
+	PRIMA KEY (id)
+);
+
+---CREAR NUEVA COLUMNA :
+ALTER TABLE table_name ADD Row_name INT/VAR/FLOAT ();
+
+---RENOMBRAR COLUMNA :
+ALTER TABLE `table_name` 
+CHANGE `Row_name_old` `Row_name_new` INT/VAR/FLOAT ();
+
+---MOVER COLUMNA :
+-----1. ALTER TABLE table_name 
+		MODIFY COLUMN Row_name_to_change INT/VAR/FLOAT () AFTER Row_name_reference;
+
+-----2. ALTER TABLE table_name 
+		CHANGE COLUMN row_name row_name estado int/var/float() 
+		AFTER Row_name_reference;
+
+---ELIMINAR COLUMNA :
+ALTER TABLE table_name DROP COLUMN Row_name;
+
+---ORDENAR POR COLUMNA :
+-----1. SELECT * FROM table_name ORDER BY Row_name;
+
+// ASCENDENTE
+-----2. SELECT * FROM table_name ORDER BY Row_name ASC; 
+
+// DESCENDENTE
+-----3. SELECT * FROM table_name ORDER BY Row_name DESC;
+
+---INSERTAR DATOS EN TABLA :
+INSERT INTO table_name (producto, precio)
+VALUES ('producto_1', '10.00'),
+	   ('producto_2', '15.00');
+
+---MODIFICAR DATO EN TABLA :
+UPDATE table_name SET row_name = 'value' WHERE id = 1;
+
+---ELIMINAR DATO EN LA TABLA :
+DELLETE FROM table_name WHERE id = 2;
+
+---LEER DATOS GENERAL:
+SELECT * FROM table_name;
+
+---LEER DATOS ESPECIFICAMENTE:
+SELECT table_name FROM row_name WHERE file = value;
+
+---LEER EN GRUPO DE DATOS : 
+SELECT count(id), Estado 
+From estudio 
+GROUP BY Estado 
+ORDER BY count(id) DESC;
+
+---BUSCAR DATOS :
+-----1 COLUMNA:
+	   SELECT * FROM table_name
+	   WHERE row_name
+	   LIKE 'value%';
+
+-----2 COLUMNAS
+	   SELECT * FROM table_name
+	   WHERE CONCAT(value1, '', value2)
+	   LIKE '%value1 value2%'
+
+---MUESTRA TODAS LAS BASE DE DATOS :
+SHOW DATABASES;
+
+---MUESTRA TODAS LAS TABLAS EN UNA BASE DE DATOS :
+SHOW COLUMNS FROM table_name;
+
+
+The SQL DISTINCT keyword is used in conjunction with SELECT to eliminate all duplicate records and return only unique ones.
+
+SELECT DISTINCT column_name1, column_name2
+FROM table_name;
+SELECT column list
+FROM table_name
+LIMIT [number of records];
