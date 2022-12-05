@@ -1,0 +1,88 @@
+
+/* Ventana modal sencilla */
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+
+body {
+	background-color: #fecfbf;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: sans-serif;
+	height: 100vh;
+}
+
+#abrir {
+	cursor: pointer;
+	background-color: #ed5962;
+	border: none;
+    width: 160px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 4px #e4b3b3;
+    transition: 0.6s all ease;
+}
+
+#abrir:hover {
+	background-color: #f0959b;
+	transition: 0.6s all ease;
+}
+
+.ventanaModal {
+	visibility: hidden;
+	position: absolute;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0,0,0,0.3);
+	width: 100%;
+	height: 100vh;
+	padding: 50px;
+}
+
+.modal {
+	background-color: #f8f8f8;
+	padding: 50px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 14px 10px rgba(0,0,0,0.2);
+	max-width: 70%;
+}
+
+.header {
+	padding: 20px 0;
+}
+
+.header h2 {
+	font-size: 40px;
+}
+
+.content p {
+	text-align: justify;
+	padding: 30px 0;
+}
+
+.footer {
+	border-top: 1px solid #ccc;
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px;
+}
+
+.footer span {
+	background-color: #67ebfa;
+	padding: 10px 20px;
+	border-radius: 10px;
+	color: #000;
+}
+
+.footer span:hover, span:focus {
+	background-color: #5fbae9;
+	cursor: pointer;
+}

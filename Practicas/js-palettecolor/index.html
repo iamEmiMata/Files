@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colores</title>
+    <!-- css file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="no-seleccionable">
+    <div class="container">
+        <h2>Palette</h2>
+        <h4>Double click to discover</h4>
+        <div class="box">
+            <div class="colorBox bgColor noSelect" onclick="changeColor(this)" >
+                <span class="a">#70D6FF</span>
+            </div>
+            <div class="colorBox bgColor noSelect" onclick="changeColor2(this)">
+                <span class="b">#FF70A6</span>
+            </div>
+            <div class="colorBox bgColor noSelect" onclick="changeColor3(this)">
+                <span class="c">#FF9770</span>
+            </div>
+            <div class="colorBox bgColor noSelect" onclick="changeColor4(this)">
+                <span class="d">#FFD670</span>
+            </div>
+            <div class="colorBox bgColor noSelect" onclick="changeColor5(this)">
+                <span class="e">#E9FF70</span>
+            </div>
+            <div class="colorBox bgColor noSelect" onclick="changeColor6(this)">
+                <span class="f">#B69DFC</span>
+            </div>
+        </div>
+        <textarea id="idColor">#70D6FF, #FF70A6, #FF9770, #FFD670, #FFD670, #B69DFC</textarea>
+        <button onclick="copyToClipboard()">copy</button>
+    </div>
+
+    <footer>
+        <span><a href="https://www.instagram.com/_emimata/" target="_blank">Insta : _emimata</a></span>
+    </footer>
+    <!-- javascript file -->
+    <script src="js/main.js"></script>
+    <!-- Block second clic JS --> 
+    <script type="text/javascript">
+        document.oncontextmenu = function(){
+        return false;
+        }
+    </script>
+</body>
+</html>

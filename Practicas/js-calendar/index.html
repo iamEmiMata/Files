@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
+</head>
+<body id="color" class="no-seleccionable">
+    <main>
+        <section id="upImg" class="upBox"></section>
+        <section class="downBox">
+            <section class="header">
+                <a href="#" class="btnLeft" id="prev">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </a>
+                <section class="currentMonth">
+                    <h2 class="month" id="month"></h2>
+                    <h5 class="year" id="year"></h5>
+                </section>
+                <a href="#" class="btnRight" id="next">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </a>
+            </section>
+            <section class="week">
+                <div id="calendarDays" class="items"></div>
+                <div id="daysGrid" class="items pW"></div>
+            </section>
+            <section class="currentDate">
+                <h4 class="date"><span id="dayWeek"></span></h4>
+                <h4 class="time" id="time"></h4>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <span>Insta : <a href="https://www.instagram.com/_emimata/" target="_blank">_emimata</a></span>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- Block second clic JS --> 
+<!--     <script type="text/javascript">
+        document.oncontextmenu = function(){
+        return false;
+        }
+    </script> -->
+</body>
+</html>
