@@ -1,0 +1,6 @@
+
+
+
+let limpiar = () => {
+    tarea.value = '';
+};
