@@ -1,0 +1,8 @@
+
+Principales funciones del lenguaje
+
+- Funciones de correo electronico
+- Gestion de base de datos
+- Gestion de archivos
+- Tratamiento de imagenes
+- 
