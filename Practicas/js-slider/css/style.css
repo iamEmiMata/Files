@@ -1,0 +1,174 @@
+
+* {
+	font-family: monospace;
+	padding: 0;
+	margin: 0;
+	box-sizing: 
+}
+
+body {
+	background-color:#5530ff;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+}
+
+/* section slider*/
+
+.slider  {
+	position: relative;
+}
+
+/* section images */
+.slider-images {
+	width: 500px;
+	overflow: hidden;
+	box-shadow: 0px 0px 90px 2px black;
+}
+
+/* section imagen */
+.item {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	width: 100%;
+	display: none;
+	height: 100%;
+}
+
+.item img {
+	width: 100%;
+	height: 100vh;
+}
+
+/* section item */
+.slider-img {
+	display: block;
+}
+
+/* dots */
+.slider-dots {
+	position: absolute;
+	bottom: 0.5rem;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: row;
+	z-index: 1;
+}
+
+.dot {
+	display: block;
+	padding: 2px;
+	background-color: #fff;
+	opacity: 0.6;
+	border:none;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: background-color .5s ease;
+	margin: 0 5px;
+}
+
+.active-dot {
+	background-color: #5530ff;
+	cursor: default;
+	pointer-events: none;
+}
+
+/* Section arrows */
+.slider-arrows {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	height: 100vh;
+}
+
+.arrow {
+	display: block;
+	padding: 0 1rem;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: transparent;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: color .25s;
+	z-index: 1;
+	opacity: 0.8;
+}
+
+.arrow:hover {
+	color: #5530ff;
+}
+
+
+/* Efecto Slider : JS clases */
+
+.active-item, 
+.prev-slide-img, .next-slide-img {
+	display: block;
+	width: 100%;
+}
+
+.prev-slide-img {
+	top: -100%;
+}
+
+.next-slide-img {
+	top: 100%;
+}
+
+.prev-img {
+	transform: translateY(-100%);
+	transition: transform 1s ease;
+}
+
+.next-img {
+	transform: translateY(100%);
+	transition: transform 1s ease;
+}
+
+/* efecto fade */
+
+.item-fade .prev-slide-img,
+.item-fade .next-slide-img {
+	left: 0;
+	opacity: 0;
+}
+
+.item-fade .prev-img,
+.item-fade .next-img {
+	transform: none;
+	opacity: 1;
+	transition: opacity 1s ease;
+}
+
+.item-fade .active-item .prev-img, 
+.item-fade .active-item .next-img {
+	opacity: 0;
+}
+
+
+
+/* me */
+
+.me {
+	position: absolute;
+	left: 30px;
+	top: 30px;
+}
+
+.me a {
+	font-weight: bold;
+	font-family: cursive;
+	background-color: #8267ff;
+	color: #dcd6f7;
+	padding: 2px 5px;
+	border-radius: 2px;
+	text-decoration: none;
+}
