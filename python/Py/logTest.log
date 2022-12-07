@@ -1,0 +1,5 @@
+CRITICAL:root:error critico al conectar con el host
+ERROR:root:error al conectar con el host 127.0.0.1
+WARNING:root:root no es un usuario seguro
+INFO:root:Info desde loggers.py
+DEBUG:root:El programa alcanzo el punto de ejecucion

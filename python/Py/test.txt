@@ -1,0 +1,9 @@
+
+Reading File:
+Ejercicio Try-Except!
+
+Writting in File:
+New text >>>>>>>>
+
+
+Hello from the other side - Emi is Writting!!

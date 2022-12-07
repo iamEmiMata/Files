@@ -1,0 +1,105 @@
+
+>> SQL << 
+
+> DDL : DATA DEFINITION LANGUAGE
+> CREATE
+> ALTER
+> DROP
+> TRUNCATE
+> RENAME
+
+
+> DML : DATA CONTROL LANGUAGE
+> GRANT
+> REVOKE
+
+
+> TCL : TRANSACTION CONTROL LANGUAGE
+> COMMIT
+> ROLLBACK
+> SAVE POINT
+
+
+> DQL : DATA QUERY LANGUAGE
+> SELECT
+> SHOW
+> DESCRIBE
+
+
+>>> IMPORTANT SQL COMMANDS - LIST
+
+SELECT, FROM, WHERE, > AS, JOIN <, AND, 
+OR, > LIMIT, IN, CASE, IS NULL,< LIKE,
+COMMIT, ROLLBACK, ALTER TABLE, UPDATE, DELETE, 
+INSERT, DROP, GROUP BY, ORDER BY, > HAVING, COUNT, 
+SUM, AVG, MIN, MAX,< CREATE, DESCRIBE, USE, SHOW,
+
+
+
+::: COMMANDS TO APPLY :::
+
+
+Database 'colors' as example to apply SQL commands
+
+example >> colors
+	colorList > id, name, code
+		      > 1, white, #fff
+
+> create database  colors
+> describe database
+> use colors
+> create table colorList (
+	id int not null auto_increment, 
+	name varchar(10), 
+	code varchar(10), 
+	primary key (id)
+)
+
+> show tables
+> desccribe colorList
+> insert into colorList (name) 
+	values ('azul'),('verde'),('amarillo'),('rojo')
+
+> select * from colorList
+> select id, name from colorList
+> select id, name from colorList where id = 2
+> select * from colorList order by name 
+> select * from colorList group by code
+> select * from colorList where id between 1 and 3
+> select * from colorList where name like '%e'
+> select * from colorList where name like 'a%'
+> select * from colorList where name like '%o%'
+> update colorlist set name = 'dorado' where id = 12
+> delete from colorlist where id = 10
+> drop database colors
+> drop table colorlist
+
+# To practice JOIN and ALTER i create another table
+> create table colorlist2 (
+	id int not null auto_increment, 
+	name varchar(10),
+	primary key (id)
+) 
+
+# create a new column in row
+ alter table colorlist2 add (code varchar (10))
+
+# update data type of columns
+alter table colorlist2 modify column code varchar(11)
+
+# delete column in row
+alter table colorlist2 DROP COLUMN code
+
+# delete duplicates in rows from index
+ALTER IGNORE TABLE colorlist ADD UNIQUE INDEX(name);
+
+# inner join
+> select colorlist.id, colors2.code, colorlist.code from colorList 
+inner join colors2  
+on colorlist.id = colors2.id
+
+# left join
+> select * from colorlist left join colorlist2 on colorlist.id = colorlist2.id
+
+# right join
+> select * from colorlist right join colorlist2 on colorlist.id = colorlist2.id
