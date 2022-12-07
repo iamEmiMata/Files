@@ -93,7 +93,7 @@ function setNewDate() {
 function weekLetters(day, weekDays) {
     for( let w = 0; w <= weekDays.length; w++) {
         if (weekDays[w] === weekDays[day-1]) {  
-            diaSemana.textContent = weekDays[w-1] + ' 🌼';
+            diaSemana.textContent = weekDays[w] + ' 🌼';
         } 
         weekDaysGrid.innerHTML += `<div id="daysGrid" class="items"><span class='Day'>${weekDays[w].slice(0,1)}</span></div>`;
     }

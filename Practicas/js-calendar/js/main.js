@@ -94,11 +94,10 @@ function weekLetters(day, weekDays) {
     for( let w = 0; w <= weekDays.length; w++) {
         // console.log(weekDays[w][0]);
         if (weekDays[w] === weekDays[day-1]) {    
-            dw.innerHTML += `<h4 class="date"><span id="dayWeek">${weekDays[w-1].slice(0, 3)},</span> <span>${currentDay} ${months[month].slice(0, 3)}, ${year.slice(-2)}</span></h4>`;
+            dw.innerHTML += `<h4 class="date"><span id="dayWeek">${weekDays[w].slice(0, 3)},</span> <span>${currentDay} ${months[month].slice(0, 3)}, ${year.slice(-2)}</span></h4>`;
             bgImg()
-        } else  {
-            weekDaysGrid.innerHTML += `<div class="items"><span class='Day'>${weekDays[w].slice(0, 1)}</span></div>`;
         }
+        weekDaysGrid.innerHTML += `<div class="items"><span class='Day'>${weekDays[w].slice(0,1)}</span></div>`;
 
     }
 }

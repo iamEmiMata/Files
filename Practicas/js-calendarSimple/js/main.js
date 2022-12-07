@@ -82,10 +82,10 @@ function weekLetters(day, weekDays) {
     for( let w = 0; w <= weekDays.length; w++) {
         // console.log(weekDays[w][0]);
         if (weekDays[w] === weekDays[day-1]) {  
-            actualD.innerHTML += `<h5 id="actual">${weekDays[w-1].slice(0, 3)},</span> <span>${currentDay} ${months[month].slice(0,3)}, ${year}</h5>`; 
-        } else  {
-            weekDaysGrid.innerHTML += `<div id="daysGrid" class="items"><span class='Day'>${weekDays[w].slice(0,1)}</span></div>`;
-        }
+            actualD.innerHTML += `<h5 id="actual">${weekDays[w].slice(0, 3)},</span> <span>${currentDay} ${months[month].slice(0,3)}, ${year}</h5>`; 
+        } 
+        weekDaysGrid.innerHTML += `<div id="daysGrid" class="items"><span class='Day'>${weekDays[w].slice(0,1)}</span></div>`;
+        
     }
 }
 weekLetters(day, weekDays); // Exit
