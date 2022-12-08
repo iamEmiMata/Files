@@ -17,6 +17,6 @@ At present I have worked both alone and in team, my programming skills are inter
 - R
 - ARDUINO
 
-#### My Portfolio -> <a href="https://emimataportfolio.web.app/"> Go There!</a>
-
+#### My Portfolio -> <a href="https://emimataportfolio.web.app/" > Go There!</a>
+#### My YT channel 'Still working on it!' -> <a href="https://youtube.com/@user-ge6el4wr7j"> Go to yt!</a>
 
