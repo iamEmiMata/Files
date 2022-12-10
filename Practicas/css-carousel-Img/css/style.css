@@ -1,0 +1,163 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: sans-serif;
+}
+
+
+/* Scroll */
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+
+/* Scroll */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 50px 100px;
+  background-color: #1a1a1a;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 0;
+  color: #fff;
+}
+
+.header h2 {
+  font-size: 40px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.header span {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 450px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type : x mandatory;
+}
+
+.slider ol {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: fit-content;
+/*  animation-name:skip;
+  animation-duration: 15s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;*/
+}
+
+/*@keyframes skip {
+  60% {
+    left: -100%
+  }
+  80% {
+    left:-100%;
+  }
+  85% {
+    left: -200%;
+  }
+  95% {
+    left: -200%;
+  }
+  100% {
+    left: 0;
+  }
+  50% {
+    left: 0;
+  }
+}
+*/
+
+.slider ol li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 450px;
+  margin: 0 20px;
+}
+
+.slider ol li a {
+  font-family: cursive;
+  font-size: 40px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  transition: .5s ease;
+}
+
+.slider ol li a:hover {
+  color: lightgreen;
+  transition: .5s ease;
+}
+
+.img {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img img {
+  width: 350px;
+  height: auto;
+}
+
+
+.footer {
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.footer a {
+  color:#fff;
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  padding: 0 5px;
+  color: lightgreen;
+  font-weight: bold;
+}
